@@ -33,12 +33,7 @@ class API {
             throw new Error("resource already in pool")
         this.resourcesKnown.add(res)
         this.resourcesUnused.add(res)
-    }
-    has (res) {
-        return this.resourcesKnown.has(res)
-    }
-    size () {
-        return this.resourcesKnown.size
+        return this
     }
     remove (res, force = false) {
         if (!this.resourcesKnown.has(res))
@@ -47,15 +42,24 @@ class API {
             throw new Error("resource still in use")
         this.resourcesKnown.delete(res)
         this.resourcesUnused.delete(res)
+        return this
+    }
+    clear () {
+        this.resourcesKnown.clear()
+        return this
+    }
+    has (res) {
+        return this.resourcesKnown.has(res)
+    }
+    size () {
+        return this.resourcesKnown.size
     }
     values () {
         return this.resourcesKnown.values()
     }
     forEach (cb) {
         this.resourcesKnown.forEach(cb)
-    }
-    clear () {
-        this.resourcesKnown.clear()
+        return this
     }
     acquire (retries = 10, delay = 100) {
         if (this.resourcesKnown.size === 0)
@@ -84,6 +88,7 @@ class API {
         if (this.resourcesUnused.has(res))
             throw new Error("resource still not used")
         this.resourcesUnused.add(res)
+        return this
     }
     used (res) {
         return !this.resourcesUnused.has(res)
@@ -115,6 +120,7 @@ class API {
                 throw err
             })
         }
+        return this
     }
 }
 
