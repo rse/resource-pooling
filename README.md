@@ -29,12 +29,31 @@ Application Programming Interface
 
 The API of Resource-Pooling is a superset of the `Set` API:
 
-- `constructor(): ResourcePooling`:<br/>
-  Create the [MQTT.js](https://www.npmjs.com/package/mqtt) API wrapper.
-  The `mqtt` is the [MQTT.js](https://www.npmjs.com/package/mqtt) instance.
-  The optional `encoding` can be either `json` (default), `msgpack` or `cbor`.
+- `constructor(): Pool`:<br/>
 
-- `ResourcePooling#register(method: string, callback: (...args: any[]) => any): void`:<br/>
+- `Pool#add(resource: any): Pool`:<br/>
+
+- `Pool#remove(resource: any): Pool`:<br/>
+
+- `Pool#clear(): Pool`:<br/>
+
+- `Pool#has(resource: any): boolean`:<br/>
+
+- `Pool#size(): number`:<br/>
+
+- `Pool#values(): any[]`:<br/>
+
+- `Pool#forEach(callback: (resource: any) => void): Pool`:<br/>
+
+- `Pool#acquire(retries?: number, delay?: number): Promise<any>`:<br/>
+
+- `Pool#release(resource: any): Pool`:<br/>
+
+- `Pool#used(resource: any): boolean`:<br/>
+
+- `Pool#use(callback: (resource: any) => Promise<any>, retries?: number, delay?: number): Promise<any>`:<br/>
+
+- `Pool#drain(callback: (resource: any) => Promise<any>, retries?: number, delay?: number): Pool`:<br/>
 
 License
 -------
