@@ -1,0 +1,36 @@
+{
+    "name":        "resource-pooling",
+    "version":     "0.9.0",
+    "description": "Simple Resource Pooling",
+    "keywords":    [ "resource", "pool" ],
+    "main":        "./resource-pooling.js",
+    "license":     "MIT",
+    "repository": {
+        "type": "git",
+        "url":  "https://github.com/rse/resource-pooling.git"
+    },
+    "author": {
+        "name":  "Ralf S. Engelschall",
+        "email": "rse@engelschall.com",
+        "url":   "http://engelschall.com"
+    },
+    "homepage": "https://github.com/rse/resource-pooling",
+    "bugs":     "https://github.com/rse/resource-pooling/issues",
+    "devDependencies": {
+        "babel-eslint":            "8.2.3",
+        "eslint":                  "4.19.1",
+        "eslint-config-standard":  "11.0.0",
+        "eslint-plugin-standard":  "3.0.1",
+        "eslint-plugin-promise":   "3.7.0",
+        "eslint-plugin-import":    "2.11.0",
+        "eslint-plugin-node":      "6.0.1"
+    },
+    "dependencies": {
+    },
+    "engines": {
+        "node":                    ">=8.0.0"
+    },
+    "scripts": {
+        "prepublishOnly":          "eslint --config eslint.yaml resource-pooling.js sample.js"
+    }
+}
