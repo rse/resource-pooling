@@ -67,7 +67,7 @@ class API {
         return new Promise((resolve, reject) => {
             const take = () => {
                 if (this.resourcesUnused.size > 0) {
-                    let res = this.resourcesUnused.values().next()
+                    const res = this.resourcesUnused.values().next()
                     this.resourcesUnused.delete(res.value)
                     resolve(res.value)
                 }
