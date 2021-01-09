@@ -1,6 +1,6 @@
 {
     "name":        "resource-pooling",
-    "version":     "0.9.8",
+    "version":     "0.9.9",
     "description": "Simple Resource Pooling",
     "keywords":    [ "resource", "pool" ],
     "main":        "./resource-pooling.js",
